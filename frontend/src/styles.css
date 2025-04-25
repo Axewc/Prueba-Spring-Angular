@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background: #EEAECA;
+  background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}

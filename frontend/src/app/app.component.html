@@ -1,10 +1,10 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * Delete the template below * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <style>
@@ -70,6 +70,10 @@
     padding: 1rem;
     box-sizing: inherit;
     position: relative;
+  }
+
+  body {
+   background-color: #fbbf24;
   }
 
   .angular-logo {
@@ -176,56 +180,73 @@
     }
   }
 </style>
-
-<nav class="navbar glass">
-  <a routerLink="/empleados" routerLinkActive="active">Ver Lista de Empleados</a>
-  <a routerLink="/empleados/nuevo" routerLinkActive="active">Agregar Empleado</a>
-</nav>
-<main>
-  <router-outlet></router-outlet>
-</main>
+  <nav class="navbar glass">
+    <a routerLink="/empleados" routerLinkActive="active">Ver Lista de Empleados</a>
+    <a routerLink="/empleados/nuevo" routerLinkActive="active">Agregar Empleado</a>
+  </nav>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 
 <style>
-  body {
-    background: linear-gradient(135deg, #6366f1 0%, #a21caf 100%);
-    min-height: 100vh;
-    margin: 0;
-  }
+  /* Aseguramos que el fondo del body se aplique correctamente */
+
+  /* Estilos del navbar */
   .navbar {
-    background: rgba(79,70,229,0.88);
-    padding: 1rem;
+    background: linear-gradient(90deg, rgba(30,58,138,0.9) 0%, rgba(99,102,241,0.9) 100%) !important;
+    padding: 1rem 2rem;
     display: flex;
-    gap: 2rem;
-    border-radius: 0 0 16px 16px;
-    box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 10;
   }
+
   .navbar a {
-    color: #fff;
+    color: #ffffff !important;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1rem;
-    transition: color 0.2s;
+    margin-right: 1.5rem;
+    transition: color 0.3s ease, transform 0.2s ease;
   }
-  .navbar a.active, .navbar a:hover {
-    color: #fbbf24;
+
+  .navbar a:last-child {
+    margin-right: 0;
   }
-  .container {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: transparent;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(79,70,229,0.10);
-    padding: 2rem;
+
+  .navbar a:hover {
+    color: #fbbf24 !important;
+    transform: scale(1.05);
   }
+
+  .navbar a.active {
+    color: #fbbf24 !important;
+    text-decoration: underline;
+  }
+
+  /* Fondo translúcido para el navbar */
   .glass {
-    backdrop-filter: blur(6px) saturate(120%);
-    background: rgba(255,255,255,0.27);
-    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px) saturate(150%) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  }
+
+  /* Aseguramos que el contenido principal no interfiera con el fondo */
+  main {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent !important;
   }
 </style>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * The content above * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

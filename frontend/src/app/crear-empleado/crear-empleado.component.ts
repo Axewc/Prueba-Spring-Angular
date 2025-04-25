@@ -36,6 +36,10 @@ export class CrearEmpleadoComponent implements OnInit {
       this.esEdicion = true;
       this.empleadoService.getEmpleadoById(+id).subscribe({
         next: (data) => {
+          if (data.fechaNacimiento) {
+            const fecha = new Date(data.fechaNacimiento);
+            data.fechaNacimiento = fecha.toISOString().split('T')[0]; // Formato yyyy-MM-dd
+          }
           this.empleado = data;
         },
         error: (err) => {
