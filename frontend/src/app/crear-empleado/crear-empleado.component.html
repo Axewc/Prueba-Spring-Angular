@@ -1,0 +1,83 @@
+<h2>Crear Empleado</h2>
+<form (ngSubmit)="crearEmpleado()" class="form-empleado">
+  <label>Nombre:
+    <input [(ngModel)]="empleado.nombre" name="nombre" required />
+  </label>
+  <label>Apellido Paterno:
+    <input [(ngModel)]="empleado.apellidoPaterno" name="apellidoPaterno" required />
+  </label>
+  <label>Apellido Materno:
+    <input [(ngModel)]="empleado.apellidoMaterno" name="apellidoMaterno" required />
+  </label>
+  <label>Sexo:
+    <input [(ngModel)]="empleado.sexo" name="sexo" required />
+  </label>
+  <label>Fecha de Nacimiento:
+    <input [(ngModel)]="empleado.fechaNacimiento" name="fechaNacimiento" type="date" required />
+  </label>
+  <label>CURP:
+    <input [(ngModel)]="empleado.curp" name="curp" required />
+  </label>
+  <label>RFC:
+    <input [(ngModel)]="empleado.rfc" name="rfc" required />
+  </label>
+  <label>Número de Empleado:
+    <input [(ngModel)]="empleado.numeroEmpleado" name="numeroEmpleado" required />
+  </label>
+  <label>Empresa:
+    <input [(ngModel)]="empleado.empresa" name="empresa" required />
+  </label>
+  <div class="form-actions">
+    <button type="submit" class="btn-guardar">Guardar</button>
+    <a routerLink="/empleados" class="btn-cancelar">Cancelar</a>
+  </div>
+</form>
+
+<style>
+.form-empleado {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-empleado label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #374151;
+}
+.form-empleado input {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.form-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+.btn-guardar {
+  background: #4f46e5;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.btn-cancelar {
+  background: #6b7280;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.btn-guardar:hover, .btn-cancelar:hover {
+  opacity: 0.85;
+}
+</style>
