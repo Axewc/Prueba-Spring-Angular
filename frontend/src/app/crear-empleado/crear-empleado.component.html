@@ -1,5 +1,5 @@
-<h2>Crear Empleado</h2>
-<form (ngSubmit)="crearEmpleado()" class="form-empleado">
+<h2>{{ esEdicion ? 'Actualizar Empleado' : 'Crear Empleado' }}</h2>
+<form (ngSubmit)="guardarEmpleado()" class="form-empleado">
   <label>Nombre:
     <input [(ngModel)]="empleado.nombre" name="nombre" required />
   </label>
@@ -10,7 +10,11 @@
     <input [(ngModel)]="empleado.apellidoMaterno" name="apellidoMaterno" required />
   </label>
   <label>Sexo:
-    <input [(ngModel)]="empleado.sexo" name="sexo" required />
+    <select [(ngModel)]="empleado.sexo" name="sexo" required>
+      <option value="" disabled selected>Selecciona una opción</option>
+      <option value="M">Masculino</option>
+      <option value="F">Femenino</option>
+    </select>
   </label>
   <label>Fecha de Nacimiento:
     <input [(ngModel)]="empleado.fechaNacimiento" name="fechaNacimiento" type="date" required />
@@ -21,14 +25,13 @@
   <label>RFC:
     <input [(ngModel)]="empleado.rfc" name="rfc" required />
   </label>
-  <label>Número de Empleado:
-    <input [(ngModel)]="empleado.numeroEmpleado" name="numeroEmpleado" required />
-  </label>
   <label>Empresa:
     <input [(ngModel)]="empleado.empresa" name="empresa" required />
   </label>
   <div class="form-actions">
-    <button type="submit" class="btn-guardar">Guardar</button>
+    <button type="submit" class="btn-guardar">
+      {{ esEdicion ? 'Actualizar' : 'Guardar' }}
+    </button>
     <a routerLink="/empleados" class="btn-cancelar">Cancelar</a>
   </div>
 </form>

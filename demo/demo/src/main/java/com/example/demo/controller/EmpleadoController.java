@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Empleado;
 import com.example.demo.repository.EmpleadoRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,8 +35,18 @@ public class EmpleadoController {
     }
 
     @PostMapping
-    public Empleado createEmpleado(@RequestBody Empleado empleado) {
-        return empleadoRepository.save(empleado);
+    public ResponseEntity<?> createEmpleado(@RequestBody @Valid Empleado empleado) {
+        try {
+            synchronized (this) {
+                Integer maxNumeroEmpleado = empleadoRepository.findMaxNumeroEmpleado();
+                int nextNumero = (maxNumeroEmpleado != null) ? maxNumeroEmpleado + 10 : 10;
+                empleado.setNumeroEmpleado("E" + String.format("%04d", nextNumero));
+            }
+            Empleado savedEmpleado = empleadoRepository.save(empleado);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedEmpleado);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear el empleado: " + e.getMessage());
+        }
     }
 
     @PutMapping("/{id}")

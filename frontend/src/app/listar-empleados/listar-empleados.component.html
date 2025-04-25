@@ -3,7 +3,7 @@
   <p>Gestiona tus empleados fácilmente con las siguientes opciones:</p>
   <div class="acciones">
     <a routerLink="/empleados/nuevo" class="btn-nuevo">Agregar Empleado</a>
-    <a routerLink="/empleados" class="btn-listar">Ver Lista de Empleados</a>
+    <a routerLink="/empleados/detalle" class="btn-listar">Ver Detalle de Empleados</a>
   </div>
 </div>
 <hr>
@@ -11,7 +11,7 @@
 <table class="empleados-table">
   <thead>
     <tr>
-      <th>ID</th>
+      <th>Número de Empleado</th>
       <th>Nombre</th>
       <th>Empresa</th>
       <th>Acciones</th>
@@ -19,7 +19,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let empleado of empleados">
-      <td>{{ empleado.id }}</td>
+      <td>{{ empleado.numeroEmpleado }}</td>
       <td>{{ empleado.nombre }}</td>
       <td>{{ empleado.empresa }}</td>
       <td>

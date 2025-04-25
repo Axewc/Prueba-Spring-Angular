@@ -1,0 +1,33 @@
+<h2>Detalle de Empleados</h2>
+<table class="empleados-table">
+  <thead>
+    <tr>
+      <th>Número de Empleado</th>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Sexo</th>
+      <th>Fecha de Nacimiento</th>
+      <th>CURP</th>
+      <th>RFC</th>
+      <th>Empresa</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let empleado of empleados">
+      <td>{{ empleado.numeroEmpleado }}</td>
+      <td>{{ empleado.nombre }}</td>
+      <td>{{ empleado.apellidoPaterno }}</td>
+      <td>{{ empleado.apellidoMaterno }}</td>
+      <td>{{ empleado.sexo }}</td>
+      <td>{{ empleado.fechaNacimiento }}</td>
+      <td>{{ empleado.curp }}</td>
+      <td>{{ empleado.rfc }}</td>
+      <td>{{ empleado.empresa }}</td>
+      <td>
+        <button (click)="eliminarEmpleado(empleado.id)" class="btn-eliminar">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
