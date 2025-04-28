@@ -23,7 +23,7 @@ Este proyecto es un sistema CRUD (Crear, Leer, Actualizar, Eliminar) para la ges
   - Generación de componentes, servicios y módulos con comandos como `ng generate`.
   - Configuración de entornos de desarrollo y producción.
 
-- **CSS**: Para el diseño y estilos empresariales.
+- **CSS**: Para el diseño y estilos.
 
 ### Backend
 

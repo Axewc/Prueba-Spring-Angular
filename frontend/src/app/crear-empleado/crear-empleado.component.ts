@@ -44,7 +44,7 @@ export class CrearEmpleadoComponent implements OnInit {
         },
         error: (err) => {
           console.error('Error al cargar empleado:', err);
-          alert('No se pudo cargar el empleado.');
+          alert(`No se pudo cargar el empleado. Detalles: ${err.error || err.message}`);
         }
       });
     }
