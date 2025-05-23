@@ -1,0 +1,15 @@
+<div class="gantt-container">
+  <h2>Diagrama de Gantt</h2>
+  <div class="gantt-chart">
+    <div class="gantt-row gantt-header">
+      <div class="gantt-cell">Fase</div>
+      <div class="gantt-cell" *ngFor="let dia of diasDelMes">{{ dia }}</div>
+    </div>
+    <div *ngFor="let task of tasks" class="gantt-row">
+      <div class="gantt-cell">{{ task.name }}</div>
+      <div class="gantt-cell" *ngFor="let dia of diasDelMes">
+        <div *ngIf="estaEnRango(task, dia)" class="gantt-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>

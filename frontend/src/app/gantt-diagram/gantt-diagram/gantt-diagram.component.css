@@ -1,0 +1,42 @@
+.gantt-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+}
+.gantt-chart {
+  width: 100%;
+}
+.gantt-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  min-height: 32px;
+}
+.gantt-header {
+  font-weight: bold;
+  background: #f3f4f6;
+}
+.gantt-cell {
+  flex: 1;
+  padding: 0.5rem;
+  min-width: 100px;
+}
+.gantt-bar-cell {
+  flex: 3;
+  position: relative;
+  min-width: 200px;
+}
+.gantt-bar-header {
+  flex: 3;
+}
+.gantt-bar {
+  height: 18px;
+  background: linear-gradient(90deg, #6366f1, #fbbf24);
+  border-radius: 4px;
+  position: absolute;
+  top: 6px;
+}

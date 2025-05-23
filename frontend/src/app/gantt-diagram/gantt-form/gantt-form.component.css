@@ -1,0 +1,24 @@
+form {
+  margin-bottom: 2rem;
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+form label {
+  margin-right: 0.5rem;
+}
+
+form input, form select {
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+form button[type="button"] {
+  margin-left: 0.5rem;
+}
+
+hr {
+  margin: 1rem 0;
+}

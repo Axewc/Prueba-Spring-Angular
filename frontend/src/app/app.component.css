@@ -21,3 +21,30 @@
 .navbar a:last-child {
   margin-right: 0;
 }
+
+.glass {
+  backdrop-filter: blur(8px) saturate(150%) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent !important;
+}
+
+.container.d-flex.justify-content-center.align-items-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar a.active {
+  color: #fbbf24 !important;
+  text-decoration: underline;
+}

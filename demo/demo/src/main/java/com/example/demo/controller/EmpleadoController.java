@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * The type Empleado controller.
+ */
 @RestController
 @RequestMapping("/api/empleados")
 public class EmpleadoController {
@@ -17,27 +20,46 @@ public class EmpleadoController {
     @Autowired
     private EmpleadoRepository empleadoRepository;
 
+    /**
+     * Gets all empleados.
+     *
+     * @return the all empleados
+     */
     @GetMapping
     public List<Empleado> getAllEmpleados() {
         return empleadoRepository.findAll();
     }
 
+    /**
+     * Gets empleado by id.
+     *
+     * @param id the id
+     * @return the empleado by id
+     */
     @GetMapping("/{id}")
-    public ResponseEntity<?> getEmpleadoById(@PathVariable Long id) {
-        try {
-            return empleadoRepository.findById(id)
-                    .map(ResponseEntity::ok)
-                    .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Empleado no encontrado"));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al obtener el empleado: " + e.getMessage());
-        }
+    public ResponseEntity<Empleado> getEmpleadoById(@PathVariable Long id) {
+        return empleadoRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
+    /**
+     * Search empleados list.
+     *
+     * @param nombre the nombre
+     * @return the list
+     */
     @GetMapping("/buscar")
     public List<Empleado> searchEmpleados(@RequestParam String nombre) {
         return empleadoRepository.findByNombreContaining(nombre);
     }
 
+    /**
+     * Create empleado response entity.
+     *
+     * @param empleado the empleado
+     * @return the response entity
+     */
     @PostMapping
     public ResponseEntity<?> createEmpleado(@RequestBody @Valid Empleado empleado) {
         try {
@@ -53,6 +75,13 @@ public class EmpleadoController {
         }
     }
 
+    /**
+     * Update empleado response entity.
+     *
+     * @param id              the id
+     * @param empleadoDetails the empleado details
+     * @return the response entity
+     */
     @PutMapping("/{id}")
     public ResponseEntity<Empleado> updateEmpleado(@PathVariable Long id, @RequestBody Empleado empleadoDetails) {
         return empleadoRepository.findById(id)
@@ -71,6 +100,12 @@ public class EmpleadoController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    /**
+     * Delete empleado response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteEmpleado(@PathVariable Long id) {
         if (empleadoRepository.existsById(id)) {
